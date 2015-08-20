@@ -1,0 +1,80 @@
+<p id="alert alert-success"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @feedback.title %>
+</p>
+
+<p>
+  <strong>Alias:</strong>
+  <%= @feedback.alias %>
+</p>
+
+<p>
+  <strong>Htmlcontent:</strong>
+  <%= @feedback.htmlContent %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @feedback.state %>
+</p>
+
+<% if @feedback.tags.size > 0 %>
+<p> 
+  <strong>Tags:</strong>
+  <% @feedback.tags.each do |tag| %>
+    <%= tag.name %>
+  <% end %>
+</p>
+<% end %>
+
+<p>
+  <strong>Created:</strong>
+  <%= @feedback.created %>
+</p>
+
+<% if @feedback.feedbackcomments.size > 0 %>
+<p> 
+  <strong><%= @feedback.feedbackcomments.size %> Comments:</strong>
+  <% @feedback.feedbackcomments.each do |comment| %>
+    <%= comment.content %>
+  <% end %>
+</p>
+<% end %>
+
+<div class="row">
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <%= form_for [@feedback, Feedbackcomment.new] do |f| %>
+        <h2>Add comments</h2>
+        <div class="field">
+          <%= f.label :user %><br>
+          <%= f.text_field :user %>
+        </div>
+
+        <div class="field">
+          <%= f.label :content %><br>
+          <%= f.text_area :content %>
+        </div>
+        <div class="actions">
+          <%= f.submit :class => "btn btn-primary" %>
+        </div>
+      <% end %>
+  </div>
+
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <%= form_for [@feedback, Tag.new] do |f| %>
+        <h2>Add tags</h2>
+        <div class="field">
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+        </div>
+        <div class="actions">
+        <%= f.submit :class => "btn btn-primary" %>
+        </div>
+      <% end %>
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_feedback_path(@feedback) %> |
+<%= link_to 'Back', feedbacks_path %>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FeedbackAdmin</title>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<header>
+		<div class="navbar">
+			<div class="yamm">
+				<div class="navbar-collapse collapse">
+					<div class="container">
+						<a class="navbar-brand" href="/">PHANHOI.XYZ / Admin</a>
+
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="#!/">home</a>
+							</li>
+						</ul>
+
+					</div>
+				<!-- /.container -->
+				</div>
+			<!-- /.navbar-collapse -->
+			</div>
+		<!-- /.yamm -->
+		</div>
+	<!-- /.navbar -->
+	</header>
+
+<div class="container">
+	<%= yield %>	
+</div>
+
+</body>
+</html>

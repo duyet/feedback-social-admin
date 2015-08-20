@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Feedbackcomments</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Created</th>
+      <th>Lastupdate</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @feedbackcomments.each do |feedbackcomment| %>
+      <tr>
+        <td><%= feedbackcomment.user %></td>
+        <td><%= feedbackcomment.created %></td>
+        <td><%= feedbackcomment.updated %></td>
+        <td><%= feedbackcomment.content %></td>
+        <td><%= link_to 'Show', feedbackcomment %></td>
+        <td><%= link_to 'Edit', edit_feedbackcomment_path(feedbackcomment) %></td>
+        <td><%= link_to 'Destroy', feedbackcomment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New', new_feedbackcomment_path, :class => "btn btn-primary" %>
